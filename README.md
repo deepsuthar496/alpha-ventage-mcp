@@ -78,7 +78,7 @@ Configure the server in your MCP settings file:
 <tool_name>get_stock_price</tool_name>
 <arguments>
 {
-  "symbol": "AAPL"  // or "RELIANCE.BSE" for Indian stocks
+  "symbol": "AAPL" 
 }
 </arguments>
 </use_mcp_tool>
@@ -161,7 +161,6 @@ Sign up for an API key at [Alpha Vantage](https://www.alphavantage.co/support/#a
 ## 🌐 Supported Markets
 
 - US Stock Markets (NYSE, NASDAQ)
-- Indian Stock Market (BSE)
 - Global Cryptocurrency Markets
 - Foreign Exchange Markets
 - International Stock Markets
