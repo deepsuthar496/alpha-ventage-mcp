@@ -1,71 +1,180 @@
-# alpha-ventage-mcp MCP Server
+# Alpha Vantage MCP Server 📈
 
-A MCP server for alpha ventage
+A Model Context Protocol (MCP) server that provides seamless integration with Alpha Vantage's financial data API, enabling real-time stock market data, cryptocurrency prices, forex rates, and technical indicators.
 
-This is a TypeScript-based MCP server that implements a simple notes system. It demonstrates core MCP concepts by providing:
+## 🌟 Features
 
-- Resources representing text notes with URIs and metadata
-- Tools for creating new notes
-- Prompts for generating summaries of notes
+### Stock Market Data
+- Real-time stock quotes from global markets
+- Historical price data (daily, weekly)
+- Comprehensive company information
+- Support for multiple exchanges (NYSE, NASDAQ, BSE)
 
-## Features
+### Cryptocurrency Data
+- Real-time crypto prices
+- Digital currency exchange rates
+- Major cryptocurrency market data
 
-### Resources
-- List and access notes via `note://` URIs
-- Each note has a title, content and metadata
-- Plain text mime type for simple content access
+### Forex Trading
+- Live foreign exchange rates
+- Currency pair conversions
+- Global forex market data
 
-### Tools
-- `create_note` - Create new text notes
-  - Takes title and content as required parameters
-  - Stores note in server state
+### Technical Analysis
+- Advanced technical indicators
+- Moving averages (SMA, EMA)
+- Market momentum indicators
+- Trading signals and patterns
 
-### Prompts
-- `summarize_notes` - Generate a summary of all stored notes
-  - Includes all note contents as embedded resources
-  - Returns structured prompt for LLM summarization
+## 🚀 Quick Start
 
-## Development
+### Installation
 
-Install dependencies:
+1. Clone the repository:
+```bash
+git clone [your-repo-url]
+cd alpha-vantage-server
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-Build the server:
+3. Build the server:
 ```bash
 npm run build
 ```
 
-For development with auto-rebuild:
-```bash
-npm run watch
-```
+### Configuration
 
-## Installation
-
-To use with Claude Desktop, add the server config:
-
-On MacOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
+Configure the server in your MCP settings file:
 
 ```json
 {
   "mcpServers": {
-    "alpha-ventage-mcp": {
-      "command": "/path/to/alpha-ventage-mcp/build/index.js",
-      "ALPHA_VANTAGE_API_KEY": "enter your api"
+    "alpha-vantage": {
+      "command": "node",
+      "args": ["path/to/alpha-vantage-server/build/index.js"],
+      "env": {
+        "ALPHA_VANTAGE_API_KEY": "your-api-key-here"
+      },
+      "disabled": false,
+      "alwaysAllow": []
     }
   }
 }
 ```
 
-### Debugging
+## 🛠️ Available Tools
 
-Since MCP servers communicate over stdio, debugging can be challenging. We recommend using the [MCP Inspector](https://github.com/modelcontextprotocol/inspector), which is available as a package script:
+### Stock Market Tools
 
-```bash
-npm run inspector
+#### get_stock_price
+```typescript
+// Get real-time stock quotes
+<use_mcp_tool>
+<server_name>alpha-vantage</server_name>
+<tool_name>get_stock_price</tool_name>
+<arguments>
+{
+  "symbol": "AAPL"  // or "RELIANCE.BSE" for Indian stocks
+}
+</arguments>
+</use_mcp_tool>
 ```
 
-The Inspector will provide a URL to access debugging tools in your browser.
+#### get_daily_time_series
+```typescript
+// Get daily stock price history
+<use_mcp_tool>
+<server_name>alpha-vantage</server_name>
+<tool_name>get_daily_time_series</tool_name>
+<arguments>
+{
+  "symbol": "MSFT",
+  "outputsize": "compact"
+}
+</arguments>
+</use_mcp_tool>
+```
+
+### Cryptocurrency Tools
+
+#### get_crypto_price
+```typescript
+// Get cryptocurrency prices
+<use_mcp_tool>
+<server_name>alpha-vantage</server_name>
+<tool_name>get_crypto_price</tool_name>
+<arguments>
+{
+  "symbol": "BTC",
+  "market": "USD"
+}
+</arguments>
+</use_mcp_tool>
+```
+
+### Forex Tools
+
+#### get_forex_rate
+```typescript
+// Get currency exchange rates
+<use_mcp_tool>
+<server_name>alpha-vantage</server_name>
+<tool_name>get_forex_rate</tool_name>
+<arguments>
+{
+  "from_currency": "USD",
+  "to_currency": "EUR"
+}
+</arguments>
+</use_mcp_tool>
+```
+
+## 📊 Technical Analysis
+
+### get_technical_indicator
+```typescript
+// Get technical indicators
+<use_mcp_tool>
+<server_name>alpha-vantage</server_name>
+<tool_name>get_technical_indicator</tool_name>
+<arguments>
+{
+  "symbol": "AAPL",
+  "indicator": "SMA",
+  "interval": "daily"
+}
+</arguments>
+</use_mcp_tool>
+```
+
+## 🔑 API Key
+
+Sign up for an API key at [Alpha Vantage](https://www.alphavantage.co/support/#api-key). Free tier includes:
+- 25 API calls per day
+- Real-time and historical data access
+- Global market coverage
+
+## 🌐 Supported Markets
+
+- US Stock Markets (NYSE, NASDAQ)
+- Indian Stock Market (BSE)
+- Global Cryptocurrency Markets
+- Foreign Exchange Markets
+- International Stock Markets
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+## 📝 License
+
+MIT
+
