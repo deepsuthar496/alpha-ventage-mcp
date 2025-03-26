@@ -53,7 +53,8 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 {
   "mcpServers": {
     "alpha-ventage-mcp": {
-      "command": "/path/to/alpha-ventage-mcp/build/index.js"
+      "command": "/path/to/alpha-ventage-mcp/build/index.js",
+      "ALPHA_VANTAGE_API_KEY": "enter your api"
     }
   }
 }
