@@ -32,7 +32,7 @@ A Model Context Protocol (MCP) server that provides seamless integration with Al
 
 1. Clone the repository:
 ```bash
-git clone [your-repo-url]
+git clone https://github.com/deepsuthar496/alpha-ventage-mcp
 cd alpha-vantage-server
 ```
 
