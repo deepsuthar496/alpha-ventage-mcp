@@ -1,4 +1,5 @@
 # Alpha Vantage MCP Server 📈
+[![smithery badge](https://smithery.ai/badge/@deepsuthar496/alpha-ventage-mcp)](https://smithery.ai/server/@deepsuthar496/alpha-ventage-mcp)
 
 A Model Context Protocol (MCP) server that provides seamless integration with Alpha Vantage's financial data API, enabling real-time stock market data, cryptocurrency prices, forex rates, and technical indicators.
 
@@ -29,6 +30,16 @@ A Model Context Protocol (MCP) server that provides seamless integration with Al
 ## 🚀 Quick Start
 
 ### Installation
+
+#### Installing via Smithery
+
+To install Alpha Vantage Financial Data Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@deepsuthar496/alpha-ventage-mcp):
+
+```bash
+npx -y @smithery/cli install @deepsuthar496/alpha-ventage-mcp --client claude
+```
+
+### Manual Installation [Administered by Repo Owner]
 
 1. Clone the repository:
 ```bash
